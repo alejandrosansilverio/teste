@@ -1,5 +1,5 @@
 # ProjetoFinal
-Sistema para cadastramento, avaliação e consulta de vinhos, semelhante ao Vivino ([vivino.com](https://www.vivino.com/BR/pt/)) como trabalho final para a disciplina de Desenvolvimento de Sistemas da Web - COM222.
+Sistema para cadastramento, avaliação e consulta de vinhos, semelhante ao Vivino ([vivino.com](https://www.vivino.com/BR/pt/)) como trabalho final para a disciplina de Desenvolvimento de Sistemas da Web - COM222, lecionada pelo professor Laércio Baldochi.
 
 Versões utilizadas:\
 &bull; Angular CLI: 13.0.3\

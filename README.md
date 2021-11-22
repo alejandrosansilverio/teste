@@ -1,27 +1,12 @@
 # ProjetoFinal
+Sistema para cadastramento, avaliação e consulta de vinhos, semelhante ao Vivino ([vivino.com](https://www.vivino.com/BR/pt/)) como trabalho final para a disciplina de Desenvolvimento de Sistemas da Web - COM222, lecionada pelo professor Laércio Baldochi na UNIFEI (Universidade Fderal de Itajubá).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+Versões utilizadas:\
+&bull; Angular CLI: 13.0.3\
+&bull; Node: 16.13.0\
+&bull; Package Manager: npm 8.1.4
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Grupo
+&bull; Alejandro Silvério dos Santos – 2019014309\
+&bull; Anna Luiza Pereira Rosa – 2019004090\
+&bull; Daniel Henrique Ferreira Carvalho - 2019005426

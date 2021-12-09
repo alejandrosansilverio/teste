@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <mat-toolbar-row class="first-line">
+        <span (click)="toHome()" class="cursor">UAIVINO</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" matTooltip="Login" (click)="toLogin()"><mat-icon>account_circle</mat-icon></button>
+        <button mat-icon-button class="example-icon" matTooltip="Carrinho" (click)="toCarrinho()"><mat-icon>shopping_cart</mat-icon></button>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="second-line">
+            <span class="label cursor" (click)="toVinhos()">
+                <mat-icon class="example-tab-icon">
+                    <img src="./assets/icon/wine.svg" class="img">
+                </mat-icon>
+                Vinhos
+            </span>
+
+            <span class="label cursor" (click)="toHarmonizacoes()">
+                <mat-icon class="example-tab-icon">
+                    <img src="./assets/icon/cheese.svg" class="img">
+                </mat-icon>
+                Harmonizações
+            </span>
+
+            <span class="label cursor" (click)="toUvas()" mat-icon-button>
+                <mat-icon class="example-tab-icon">
+                    <img src="./assets/icon/grape.svg" class="img">
+                </mat-icon>
+                Uvas
+            </span>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,24 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LayoutModule } from '@angular/cdk/layout';
+import { HomeComponent } from './home.component';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { AppRoutingModule } from '../app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -29,22 +27,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppComponent } from '../app.component';
+import {LayoutModule} from '@angular/cdk/layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { VinhosComponent } from './vinhos/vinhos.component';
-import { Router, RouterModule } from '@angular/router';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { VinhosComponent } from '../vinhos/vinhos.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent,
     HomeComponent,
-    VinhosComponent,
-    ToolbarComponent,
-    CarrinhoComponent
+    AppComponent,
+    VinhosComponent
   ],
   imports: [
     CommonModule,
@@ -88,8 +84,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     provide: STEPPER_GLOBAL_OPTIONS,
     useValue: {displayDefaultIndicatorType: false},
   }],
-  bootstrap: [AppComponent],
-  exports: [RouterModule],
+  bootstrap: [HomeComponent],
+  exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class HomeModule { }

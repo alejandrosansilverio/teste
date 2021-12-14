@@ -1,88 +1,93 @@
 mat-slider{
-    margin-top: 5%;
-    margin-left: 5%;
-    width: 50%;
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 50%;
 }
 
-
+mat-card {
+margin: 0.5%;
+}
 
 ::ng-deep .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: green !important;
-   }
-  
-   ::ng-deep.mat-form-field-underline {
-    /*change color of underline*/
-    background-color: green !important;
-  } 
-  
-  ::ng-deep.mat-form-field-ripple {
-   /*change color of underline when focused*/
-   background-color: green !important;;
-  }
+  /*change color of label*/
+  color: green !important;
+ }
 
-  .example-spacer {
-    flex: 1 1 auto;
-  }
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+} 
 
-  .mat-sidenav-container{
-    background-color: lightskyblue;
-    min-height: 93vh !important;
-  }
-
-  .mat-sidenav-content{
-    font-size: 200%;
-    text-align: center;
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
 }
-  
+
+.card {
+  margin: 1% !important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-sidenav-container{
+  background-color: lightskyblue;
+  min-height: 93vh !important;
+}
+
+.mat-sidenav-content{
+  font-size: 200%;
+  text-align: center;
+}
+
 a{
-    text-decoration: none;
-    font-size: 110%;
-    white-space: normal;
+  text-decoration: none;
+  font-size: 110%;
+  white-space: normal;
 }
 
 .first-line {
-  height: 45px !important;
+height: 45px !important;
 }
 
 .second-line {
-  background: #b2dfdb;
-  height: 30px !important;
+background: #b2dfdb;
+height: 30px !important;
 }
 
 .label {
-  display: inline-flex;
-  align-items: baseline;
-  white-space: nowrap;
-  align-content: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  font-size: medium;
-  margin-right: 25px;
-  color: black;
+display: inline-flex;
+align-items: baseline;
+white-space: nowrap;
+align-content: center;
+flex-direction: row;
+flex-wrap: nowrap;
+font-size: medium;
+//margin-right: 25px;
+color: black;
 }
 
 .line {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-content: center;
+display: flex;
+//flex-direction: row;
+//flex-wrap: nowrap;
+justify-content: space-evenly;
+align-content: center;
+//margin: 1%;
 }
 
 .vinho-img {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: flex-end;
-  justify-content: center;
-  align-items: flex-start;
+display: flex;
+//flex-direction: row;
+//flex-wrap: nowrap;
+align-content: flex-end;
+justify-content: center;
+align-items: flex-start;
 }
 
-.img {
-  width: 60%;
+img {
+min-width: 60%;
+max-width: 90%;
 }
 
-.img2 {
-  width: 55%;
-}

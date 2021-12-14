@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { BreakpointObserver } from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -12,15 +13,12 @@ import { Router } from '@angular/router';
  
 })
 export class HomeComponent implements OnInit {
-
-  
-
-  constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog, public router: Router) {}
 
   ngOnInit() {
     
   }
   
-
+  
 
 }

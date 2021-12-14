@@ -1,0 +1,33 @@
+<form class="form">
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+      
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field>
+          <mat-label>Senha</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div class="row section">
+        <section>
+            <mat-checkbox [(ngModel)]="checked" color="primary">Aceito os <u>termos de uso</u> e <u>poítica de privacidade</u></mat-checkbox>
+        </section><br><br>
+    </div>
+  
+    <div class="row line">
+        <button class="btnFechar" (click)="dismiss()">Cancelar</button>&nbsp;
+        <button class="btnContinuar" [disabled]="!checked" (click)="cadastrar()">Continuar</button>
+    </div>

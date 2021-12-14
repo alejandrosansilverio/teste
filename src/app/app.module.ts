@@ -15,7 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -37,6 +37,8 @@ import { VinhosComponent } from './vinhos/vinhos.component';
 import { Router, RouterModule } from '@angular/router';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { LoginComponent } from './modal/login/login.component';
+import { CadastroComponent } from './modal/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     HomeComponent,
     VinhosComponent,
     ToolbarComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    LoginComponent,
+    CadastroComponent
   ],
   imports: [
     CommonModule,
@@ -84,10 +88,10 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     LayoutModule,
     MatTooltipModule
   ],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS,
-    useValue: {displayDefaultIndicatorType: false},
-  }],
+  providers: [
+    {provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+  ],
   bootstrap: [AppComponent],
   exports: [RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

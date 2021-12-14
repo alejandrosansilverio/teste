@@ -4,6 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from '../app.component';
 import { ToolbarComponent } from './toolbar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AppModule } from '../app.module';
 
 
 
@@ -14,6 +15,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   ],
   imports: [
     CommonModule,
+    AppModule,
     MatDialogModule,
     SweetAlert2Module
   ]

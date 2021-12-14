@@ -35,6 +35,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { VinhosComponent } from '../vinhos/vinhos.component';
 import { RouterModule } from '@angular/router';
+import { AppModule } from '../app.module';
 
 @NgModule({
   declarations: [

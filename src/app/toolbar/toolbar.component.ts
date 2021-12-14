@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { LoginComponent } from '../modal/login/login.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -35,11 +36,20 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['/carrinho']);
   }
 
-  toLogin(){
+  /*toLogin(){
     const teste = Swal.fire({
       icon: 'success',
       title: 'swal'
     })
+  }*/
+
+  toLogin(){
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '520px',
+      height: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
 }

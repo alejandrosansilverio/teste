@@ -42,11 +42,11 @@ a{
 }
 
 .first-line {
-  height: 45px !important;
+  height: 60px !important;
 }
 
 .second-line {
-  background: #b2dfdb;
+  background: #98e7e1;
   height: 30px !important;
 }
 
@@ -60,6 +60,18 @@ a{
   font-size: medium;
   margin-right: 25px;
   color: black;
+}
+
+.labelU {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: medium;
+  margin-right: 5px;
+  color: white;
 }
 
 .line {
@@ -80,7 +92,7 @@ a{
 }
 
 .img {
-  width: 60%;
+  width: 45%;
 }
 
 .img2 {
@@ -89,4 +101,9 @@ a{
 
 .cursor {
   cursor: pointer !important;
+}
+
+.ic {
+  margin-top: 0%;
+  padding: 0;
 }

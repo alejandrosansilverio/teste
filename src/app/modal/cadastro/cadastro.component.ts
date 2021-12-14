@@ -22,7 +22,7 @@ export class CadastroComponent implements OnInit {
   cadastrar(){
     const res = Swal.fire({
       icon: 'success',
-      title: 'Cadastrado com sucesso!',
+      title: 'Cadastrado concluído com sucesso!',
       confirmButtonColor: 'rgb(76, 177, 76)'
     });
   }

@@ -1,12 +1,17 @@
 <mat-toolbar>
-    <mat-toolbar-row class="first-line">
         <span (click)="toHome()" class="cursor">UAIVINO</span>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon" matTooltip="Login" (click)="toLogin()"><mat-icon>account_circle</mat-icon></button>
-        <button mat-icon-button class="example-icon" matTooltip="Carrinho" (click)="toCarrinho()"><mat-icon>shopping_cart</mat-icon></button>
-    </mat-toolbar-row>
 
-    <mat-toolbar-row class="second-line">
+        <button mat-icon-button matTooltip="Meus Vinhos" class="ic" (click)="toVinhos()"><mat-icon>wine_bar</mat-icon></button>
+        <button mat-icon-button matTooltip="Carrinho" (click)="toCarrinho()"><mat-icon>shopping_cart</mat-icon></button>
+        
+       
+        <!--Colocar um ngIf pra reconhecer o login: logou some login e aparece sair e o nome-->
+        <button mat-icon-button matTooltip="Login" (click)="toLogin()"><mat-icon>account_circle</mat-icon></button>
+        <!--<span class="labelU">Anna Luiza</span>
+        <button mat-icon-button matTooltip="Sair" (click)="toCarrinho()"><mat-icon>logout</mat-icon></button>-->
+
+   <!-- <mat-toolbar-row class="second-line">
             <span class="label cursor" (click)="toVinhos()">
                 <mat-icon class="example-tab-icon">
                     <img src="./assets/icon/wine.svg" class="img">
@@ -27,5 +32,5 @@
                 </mat-icon>
                 Uvas
             </span>
-    </mat-toolbar-row>
+    </mat-toolbar-row>-->
 </mat-toolbar>

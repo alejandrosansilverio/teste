@@ -39,6 +39,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { LoginComponent } from './modal/login/login.component';
 import { CadastroComponent } from './modal/cadastro/cadastro.component';
+import { CadastroVinhosComponent } from './modal/cadastro-vinhos/cadastro-vinhos.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CadastroComponent } from './modal/cadastro/cadastro.component';
     ToolbarComponent,
     CarrinhoComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    CadastroVinhosComponent
   ],
   imports: [
     CommonModule,

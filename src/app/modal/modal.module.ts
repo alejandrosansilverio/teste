@@ -12,6 +12,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AppModule } from '../app.module';
 import { AppComponent } from '../app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { CadastroVinhosComponent } from './cadastro-vinhos/cadastro-vinhos.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
   ],
   declarations: [
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    CadastroVinhosComponent
   ],
   bootstrap: [AppComponent]
 })

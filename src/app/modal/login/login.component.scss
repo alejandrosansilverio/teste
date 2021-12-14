@@ -1,5 +1,5 @@
 .form {
-    width: 70%;
+    max-width: 90%;
     display: block;
     margin: auto;
 }
@@ -11,7 +11,7 @@
     box-shadow: 0 0 0 0;
     background: lightgray;
     height: 35px;
-    max-width: 25%;
+    max-width: fit-content;
     margin: 1%;
 }
 
@@ -22,7 +22,7 @@
     box-shadow: 0 0 0 0;
     background: rgb(76, 177, 76);
     height: 35px;
-    max-width: 25%;
+    max-width: fit-content;
     margin: 1%;
 }
 

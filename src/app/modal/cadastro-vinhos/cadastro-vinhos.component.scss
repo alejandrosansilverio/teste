@@ -1,5 +1,5 @@
 .form {
-    max-width: 80%;
+    width: 100%;
     display: block;
     margin: auto;
 }
@@ -46,11 +46,9 @@
     align-content: center;
 }
 
-
-body {
-    overflow: hidden !important;
+.section {
+    margin-left: 12%;
 }
-
 
 ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/

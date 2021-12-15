@@ -6,6 +6,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { Router } from '@angular/router';
+import { CadastroVinhosComponent } from '../modal/cadastro-vinhos/cadastro-vinhos.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vinhos',
@@ -26,7 +28,7 @@ export class VinhosComponent implements OnInit {
   isSmall: any;
   stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private breakpointObserver: BreakpointObserver, public router: Router) { }
+  constructor(private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.isSmall = this.breakpointObserver
@@ -48,6 +50,15 @@ export class VinhosComponent implements OnInit {
     this.secondFormGroup = new FormGroup({
       secondCtrl: new FormControl('', Validators.required)
     });
+  }
+
+  toCadastrarVinho(){
+    const dialogRef = this.dialog.open(CadastroVinhosComponent, {
+      width: '520px',
+      height: '470px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
 }

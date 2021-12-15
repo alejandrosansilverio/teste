@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 interface Food {
-  value: string;
-  viewValue: string;
+  id: number;
+  nome: string;
 }
 
 @Component({
@@ -16,59 +17,73 @@ interface Food {
 export class CadastroVinhosComponent implements OnInit {
 
   vinhos: Food[] = [
-    {value: '1', viewValue: 'Tinto'},
-    {value: '2', viewValue: 'Branco'},
-    {value: '3', viewValue: 'Rosé'},
-    {value: '4', viewValue: 'Espumante'},
-    {value: '4', viewValue: 'Sobremesa'},
-    {value: '5', viewValue: 'Fortificado'}
+    {id: 1, nome: 'Tinto'},
+    {id: 2, nome: 'Branco'},
+    {id: 3, nome: 'Rosé'},
+    {id: 4, nome: 'Espumante'},
+    {id: 5, nome: 'Sobremesa'},
+    {id: 6, nome: 'Fortificado'}
   ];
 
   uvas: Food[] = [
-    {value: '1', viewValue: 'Carbenet Sauvignon'},
-    {value: '2', viewValue: 'Merlot'},
-    {value: '3', viewValue: 'Chardonnay'},
-    {value: '4', viewValue: 'Pinot Noir'},
-    {value: '4', viewValue: 'Malbec'},
-    {value: '5', viewValue: 'Sauvignon Blanc'},
-    {value: '6', viewValue: 'Shiraz/Syrah'},
-    {value: '7', viewValue: 'Zinfandel'},
-    {value: '8', viewValue: 'Nebbiolo'},
-    {value: '9', viewValue: 'Sangiovese'},
-    {value: '10', viewValue: 'Pior Grigio'},
-    {value: '11', viewValue: 'Riesling'},
-    {value: '12', viewValue: 'Chenin Blanc'},
-    {value: '13', viewValue: 'Moscato'},
-    {value: '14', viewValue: 'Albarino'}
+    {id: 1, nome: 'Carbenet Sauvignon'},
+    {id: 2, nome: 'Merlot'},
+    {id: 3, nome: 'Chardonnay'},
+    {id: 4, nome: 'Pinot Noir'},
+    {id: 5, nome: 'Malbec'},
+    {id: 6, nome: 'Sauvignon Blanc'},
+    {id: 7, nome: 'Shiraz/Syrah'},
+    {id: 8, nome: 'Zinfandel'},
+    {id: 9, nome: 'Nebbiolo'},
+    {id: 10, nome: 'Sangiovese'},
+    {id: 11, nome: 'Pior Grigio'},
+    {id: 12, nome: 'Riesling'},
+    {id: 13, nome: 'Chenin Blanc'},
+    {id: 14, nome: 'Moscato'},
+    {id: 15, nome: 'Albarino'}
   ];
 
   harmonizacoes: Food[] = [
-    {value: '1', viewValue: 'Carne de vaca'},
-    {value: '2', viewValue: 'Cordeiro'},
-    {value: '3', viewValue: 'Vitela'},
-    {value: '4', viewValue: 'Carne de porco'},
-    {value: '5', viewValue: 'Carne de caça (cervo, veado, etc.)'},
-    {value: '6', viewValue: 'Aves'},
-    {value: '7', viewValue: 'Cogumelos'},
-    {value: '8', viewValue: 'Carne curada'},
-    {value: '9', viewValue: 'Queijo de cabra'},
-    {value: '10', viewValue: 'Queijos maduros'},
-    {value: '11', viewValue: 'Queijos suaves e moles'},
-    {value: '12', viewValue: 'Massa'},
-    {value: '12', viewValue: 'Comida picante'},
-    {value: '14', viewValue: 'Aperitivo'},
-    {value: '15', viewValue: 'Aperitivos e lanches'},
-    {value: '16', viewValue: 'Peixes magros'},
-    {value: '17', viewValue: 'Peixe (salmão, atum, etc.)'},
-    {value: '18', viewValue: 'Marisco'},
-    {value: '19', viewValue: 'Vegetariano'}
+    {id: 1, nome: 'Carne de vaca'},
+    {id: 2, nome: 'Cordeiro'},
+    {id: 3, nome: 'Vitela'},
+    {id: 4, nome: 'Carne de porco'},
+    {id: 5, nome: 'Carne de caça (cervo, veado, etc.)'},
+    {id: 6, nome: 'Aves'},
+    {id: 7, nome: 'Cogumelos'},
+    {id: 8, nome: 'Carne curada'},
+    {id: 9, nome: 'Queijo de cabra'},
+    {id: 10, nome: 'Queijos maduros'},
+    {id: 11, nome: 'Queijos suaves e moles'},
+    {id: 12, nome: 'Massa'},
+    {id: 13, nome: 'Comida picante'},
+    {id: 14, nome: 'Aperitivo'},
+    {id: 15, nome: 'Aperitivos e lanches'},
+    {id: 16, nome: 'Peixes magros'},
+    {id: 17, nome: 'Peixe (salmão, atum, etc.)'},
+    {id: 18, nome: 'Marisco'},
+    {id: 19, nome: 'Vegetariano'}
   ];
 
   fileName = '';
+  dadosVinho: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<CadastroVinhosComponent>, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.loadForm();
+  }
+
+  loadForm(){
+    this.dadosVinho = new FormGroup({
+      nome: new FormControl('nome', Validators.required),
+      vinicola: new FormControl('vinicola', Validators.required),
+      pais_origem: new FormControl('pais_origem', Validators.required),
+      tipo_vinho: new FormControl('tipo_vinho', Validators.required),
+      tipo_uva: new FormControl('tipo_uva', Validators.required),
+      harmonizacao: new FormControl('harmonizacao', Validators.required),
+      rotulo: new FormControl('rotulo', Validators.required),
+    });
   }
 
   onFileSelected(event: any) {

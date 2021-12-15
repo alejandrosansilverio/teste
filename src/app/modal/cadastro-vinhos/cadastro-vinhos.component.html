@@ -1,7 +1,7 @@
 <br>
-<form class="form">
+<form class="form" enctype="multipart/form-data" [formGroup]="dadosVinho">
     <div class="row">
-        <mat-form-field color="primary">
+        <mat-form-field color="primary" formControlName="nome">
             <mat-label>Nome do vinho</mat-label>
             <input matInput>
         </mat-form-field>
@@ -9,14 +9,14 @@
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <mat-form-field color="primary">
+            <mat-form-field color="primary" formControlName="vinicola">
                 <mat-label>Vinícola</mat-label>
                 <input matInput>
             </mat-form-field>
         </div>
 
         <div class="col-12 col-md-6">
-            <mat-form-field color="primary">
+            <mat-form-field color="primary" formControlName="pais_origem">
                 <mat-label>País de origem</mat-label>
                 <input matInput>
             </mat-form-field>
@@ -25,36 +25,36 @@
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <mat-form-field color="primary">
+            <mat-form-field color="primary" formControlName="tipo_vinho">
                 <mat-label>Tipo de vinho</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let v of vinhos" [value]="v.value">{{v.viewValue}}</mat-option>
+                    <mat-option *ngFor="let v of vinhos" [value]="v.id">{{v.nome}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
 
         <div class="col-12 col-md-6">
-            <mat-form-field color="primary">
+            <mat-form-field color="primary" formControlName="tipo_uva">
                 <mat-label>Tipo de uva ou blend</mat-label>
                 <mat-select multiple>
-                    <mat-option *ngFor="let u of uvas" [value]="u.value">{{u.viewValue}}</mat-option>
+                    <mat-option *ngFor="let u of uvas" [value]="u.id">{{u.nome}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
     </div>
 
     <div class="row">
-        <mat-form-field color="primary">
+        <mat-form-field color="primary" formControlName="harmonizacao">
             <mat-label>Harmonização com comidas</mat-label>
             <mat-select multiple>
-                <mat-option *ngFor="let h of harmonizacoes" [value]="h.value">{{h.viewValue}}</mat-option>
+                <mat-option *ngFor="let h of harmonizacoes" [value]="h.id">{{h.nome}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
 
     <div class="row">
         <mat-label class="label">Rótulo da garrafa</mat-label>
-        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+        <input type="file" class="file-input" formControlName="rotulo" (change)="onFileSelected($event)" #fileUpload>
 
         <div class="file-upload">
             <button mat-mini-fab color="primary" class="upload-btn"

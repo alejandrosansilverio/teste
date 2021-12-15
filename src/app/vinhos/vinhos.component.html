@@ -1,13 +1,13 @@
 <!--<mat-slider min="0" max="10" step="1" tickInterval="1" thumbLabel></mat-slider>-->
 
-<mat-stepper #stepper [linear]="isLinear" [orientation]="(stepperOrientation | async)!">
+<!--<mat-stepper #stepper [linear]="isLinear" [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field appearance="fill">
+        <mat-form-field color="primary" appearance="fill">
             <mat-label>Name</mat-label>
             <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
+        </mat-form-field color="primary">
         <div>
             <button mat-button matStepperNext>Next</button>
         </div>
@@ -17,11 +17,11 @@
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field appearance="fill">
+        <mat-form-field color="primary" appearance="fill">
             <mat-label>Address</mat-label>
             <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
                     required>
-        </mat-form-field>
+        </mat-form-field color="primary">
         <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
@@ -37,4 +37,32 @@
         <button mat-button (click)="stepper.reset()">Reset</button>
         </div>
     </mat-step>
-</mat-stepper>
+</mat-stepper>-->
+
+<!--<mat-card>
+    <mat-tab-group>
+        <mat-tab label="Tinto"><br>
+            Vinhos tintos
+        </mat-tab>
+
+        <mat-tab label="Branco"><br>
+            Vinhos brancos
+        </mat-tab>
+
+        <mat-tab label="Espumante"><br>
+            Vinhos espumantes
+        </mat-tab>
+
+        <mat-tab label="Rosé"><br>
+            Vinhos rosé
+        </mat-tab>
+    </mat-tab-group> 
+</mat-card>-->
+
+    <div class="addbtn">
+        <button mat-fab color="primary" (click)="toCadastrarVinho()" matTooltip="Cadastrar vinho">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+<div>content</div>

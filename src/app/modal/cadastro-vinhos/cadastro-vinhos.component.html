@@ -1,7 +1,7 @@
 <br>
 <form class="form">
     <div class="row">
-        <mat-form-field>
+        <mat-form-field color="primary">
             <mat-label>Nome do vinho</mat-label>
             <input matInput>
         </mat-form-field>
@@ -9,14 +9,14 @@
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <mat-form-field>
+            <mat-form-field color="primary">
                 <mat-label>Vinícola</mat-label>
                 <input matInput>
             </mat-form-field>
         </div>
 
         <div class="col-12 col-md-6">
-            <mat-form-field>
+            <mat-form-field color="primary">
                 <mat-label>País de origem</mat-label>
                 <input matInput>
             </mat-form-field>
@@ -25,7 +25,7 @@
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <mat-form-field>
+            <mat-form-field color="primary">
                 <mat-label>Tipo de vinho</mat-label>
                 <mat-select>
                     <mat-option *ngFor="let v of vinhos" [value]="v.value">{{v.viewValue}}</mat-option>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="col-12 col-md-6">
-            <mat-form-field>
+            <mat-form-field color="primary">
                 <mat-label>Tipo de uva ou blend</mat-label>
                 <mat-select multiple>
                     <mat-option *ngFor="let u of uvas" [value]="u.value">{{u.viewValue}}</mat-option>
@@ -44,14 +44,27 @@
     </div>
 
     <div class="row">
-        <mat-form-field>
+        <mat-form-field color="primary">
             <mat-label>Harmonização com comidas</mat-label>
             <mat-select multiple>
                 <mat-option *ngFor="let h of harmonizacoes" [value]="h.value">{{h.viewValue}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
-</form><br>
+
+    <div class="row">
+        <mat-label class="label">Rótulo da garrafa</mat-label>
+        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+        <div class="file-upload">
+            <button mat-mini-fab color="primary" class="upload-btn"
+            (click)="fileUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+            </button>&nbsp;&nbsp;
+            {{fileName || "Nenhum arquivo selecionado."}}
+        </div>
+    </div>
+</form>
 
 <div class="row line">
     <button class="btnFechar" (click)="dismiss()">Cancelar</button>&nbsp;

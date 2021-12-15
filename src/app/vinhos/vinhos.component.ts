@@ -55,7 +55,7 @@ export class VinhosComponent implements OnInit {
   toCadastrarVinho(){
     const dialogRef = this.dialog.open(CadastroVinhosComponent, {
       width: '520px',
-      height: '420px'
+      height: '470px'
     });
 
     dialogRef.afterClosed().subscribe(result => {});

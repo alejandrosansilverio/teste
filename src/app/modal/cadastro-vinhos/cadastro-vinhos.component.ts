@@ -2,12 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
-
-interface Food {
-  id: number;
-  nome: string;
-}
 
 @Component({
   selector: 'app-cadastro-vinhos',
@@ -16,85 +12,62 @@ interface Food {
 })
 export class CadastroVinhosComponent implements OnInit {
 
-  vinhos: Food[] = [
-    {id: 1, nome: 'Tinto'},
-    {id: 2, nome: 'Branco'},
-    {id: 3, nome: 'Rosé'},
-    {id: 4, nome: 'Espumante'},
-    {id: 5, nome: 'Sobremesa'},
-    {id: 6, nome: 'Fortificado'}
-  ];
-
-  uvas: Food[] = [
-    {id: 1, nome: 'Carbenet Sauvignon'},
-    {id: 2, nome: 'Merlot'},
-    {id: 3, nome: 'Chardonnay'},
-    {id: 4, nome: 'Pinot Noir'},
-    {id: 5, nome: 'Malbec'},
-    {id: 6, nome: 'Sauvignon Blanc'},
-    {id: 7, nome: 'Shiraz/Syrah'},
-    {id: 8, nome: 'Zinfandel'},
-    {id: 9, nome: 'Nebbiolo'},
-    {id: 10, nome: 'Sangiovese'},
-    {id: 11, nome: 'Pior Grigio'},
-    {id: 12, nome: 'Riesling'},
-    {id: 13, nome: 'Chenin Blanc'},
-    {id: 14, nome: 'Moscato'},
-    {id: 15, nome: 'Albarino'}
-  ];
-
-  harmonizacoes: Food[] = [
-    {id: 1, nome: 'Carne de vaca'},
-    {id: 2, nome: 'Cordeiro'},
-    {id: 3, nome: 'Vitela'},
-    {id: 4, nome: 'Carne de porco'},
-    {id: 5, nome: 'Carne de caça (cervo, veado, etc.)'},
-    {id: 6, nome: 'Aves'},
-    {id: 7, nome: 'Cogumelos'},
-    {id: 8, nome: 'Carne curada'},
-    {id: 9, nome: 'Queijo de cabra'},
-    {id: 10, nome: 'Queijos maduros'},
-    {id: 11, nome: 'Queijos suaves e moles'},
-    {id: 12, nome: 'Massa'},
-    {id: 13, nome: 'Comida picante'},
-    {id: 14, nome: 'Aperitivo'},
-    {id: 15, nome: 'Aperitivos e lanches'},
-    {id: 16, nome: 'Peixes magros'},
-    {id: 17, nome: 'Peixe (salmão, atum, etc.)'},
-    {id: 18, nome: 'Marisco'},
-    {id: 19, nome: 'Vegetariano'}
-  ];
-
   fileName = '';
   dadosVinho: FormGroup;
+  nome: string;
+  vinicola: string;
+  pais_origem: string;
+  tipo_vinho = [];
+  tipo_uva = [];
+  harmonizacao = [];
+  vinhos: any;
+  uvas: any;
+  harmonizacoes: any;
+  rotulo: any;
+  body: any;
+  arquivo: any;
 
   constructor(public dialogRef: MatDialogRef<CadastroVinhosComponent>, private http: HttpClient) { }
 
   ngOnInit(): void {
+    console.log('teste')
     this.loadForm();
+    forkJoin([
+      this.http.get("http://localhost:3000/tipo_vinhos"),
+      this.http.get("http://localhost:3000/uvas"),
+      this.http.get("http://localhost:3000/harmonizacoes")
+    ]).subscribe(res => {
+      this.vinhos = res[0];
+      this.uvas = res[1];
+      this.harmonizacoes = res[2];
+    })
   }
 
   loadForm(){
     this.dadosVinho = new FormGroup({
-      nome: new FormControl('nome', Validators.required),
-      vinicola: new FormControl('vinicola', Validators.required),
-      pais_origem: new FormControl('pais_origem', Validators.required),
-      tipo_vinho: new FormControl('tipo_vinho', Validators.required),
-      tipo_uva: new FormControl('tipo_uva', Validators.required),
-      harmonizacao: new FormControl('harmonizacao', Validators.required),
-      rotulo: new FormControl('rotulo', Validators.required),
+      nome: new FormControl(this.nome, Validators.required),
+      vinicola: new FormControl(this.vinicola, Validators.required),
+      pais_origem: new FormControl(this.pais_origem, Validators.required),
+      tipo_vinho: new FormControl(this.tipo_vinho, Validators.required),
+      tipo_uva: new FormControl(this.tipo_uva, Validators.required),
+      harmonizacao: new FormControl(this.harmonizacao, Validators.required),
+      rotulo: new FormControl(this.rotulo, Validators.required),
     });
   }
 
   onFileSelected(event: any) {
-    const file:File = event.target.files[0];
+    var file:File = event.target.files[0];
     if (file) {
         this.fileName = file.name;
         const formData = new FormData();
         formData.append("thumbnail", file);
-        const upload$ = this.http.post("/api/thumbnail-upload", formData);
-        upload$.subscribe();
+        /*const upload$ = this.http.post("/api/thumbnail-upload", formData);
+        upload$.subscribe();*/
+        this.arquivo = formData;
+        return this.arquivo;
     }
+
+
 }
 
   dismiss(){
@@ -102,11 +75,26 @@ export class CadastroVinhosComponent implements OnInit {
   }
 
   cadastrar(){
-    const res = Swal.fire({
+    this.body = {
+      nome: this.dadosVinho.value.nome,
+      vinicola: this.dadosVinho.value.vinicola,
+      pais_origem: this.dadosVinho.value.pais_origem,
+      tipo_vinho: this.dadosVinho.value.tipo_vinho,
+      tipo_uva: this.dadosVinho.value.tipo_uva,
+      harmonizacao: this.dadosVinho.value.harmonizacao,
+      rotulo: this.arquivo
+    }
+    console.log(this.body)
+
+    this.http.post("http://localhost:3000/vinhos", this.body).subscribe((res) => {
+      console.log(res)
+    });
+
+   /* const res = Swal.fire({
       icon: 'success',
       title: 'Cadastrado concluído com sucesso!',
       confirmButtonColor: 'rgb(76, 177, 76)'
-    });
+    });*/
   }
 
 }

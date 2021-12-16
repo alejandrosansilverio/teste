@@ -88,7 +88,8 @@ import { CadastroVinhosComponent } from './modal/cadastro-vinhos/cadastro-vinhos
     MatFormFieldModule,
     MatInputModule,
     LayoutModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
   providers: [
     {provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}},

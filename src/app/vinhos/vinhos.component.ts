@@ -8,6 +8,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { Router } from '@angular/router';
 import { CadastroVinhosComponent } from '../modal/cadastro-vinhos/cadastro-vinhos.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-vinhos',
@@ -26,20 +27,21 @@ export class VinhosComponent implements OnInit {
   isEditable = false;
   isLinear = false;
   isSmall: any;
-  stepperOrientation: Observable<StepperOrientation>;
+  // stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog) { }
+  constructor(private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.isSmall = this.breakpointObserver
     .observe('(min-width: 800px)')
     .pipe(map(({matches}) => (matches ? true : false)));
 
-    this.stepperOrientation = this.breakpointObserver
-    .observe('(min-width: 800px)')
-    .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+    // this.stepperOrientation = this.breakpointObserver
+    // .observe('(min-width: 800px)')
+    // .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
 
     this.loadForm();
+
   }
 
   loadForm(){

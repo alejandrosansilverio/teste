@@ -1,5 +1,59 @@
 <mat-card class="card">
-    <div class="row line">
+    <div *ngIf="vinhos.length!=0" class="row line">
+        <mat-card *ngFor="let v of vinhos" class="col-12 col-md-3">
+            <div class="row" >
+                <div class="col">
+                    <div class="vinho-img">
+                        <img src="assets/{{v.rotulo}}">
+                    </div>
+                </div><br>
+                <div class="col">
+                    <mat-card-subtitle>{{v.nome}}</mat-card-subtitle>
+                    <mat-card-content>
+                        <p>Vinicola: {{v.vinicola}}</p>
+                        <p>Pais Origem: {{v.pais_origem}}</p>
+                        <p>Tipo Vinho: <span *ngFor="let t of searchTipoVinho(v.tipo_vinho)">{{t.nome}} </span></p>
+                        <p>Tipo Uva:  <span *ngFor="let t of searchUvas(v.tipo_uva)">{{t.nome}} </span></p>
+                        <p>Harmonização: <span *ngFor="let t of searchHarmonizacao(v.harmonizacao)">{{t.nome}} </span></p>
+                    </mat-card-content>
+                </div>
+            </div>
+        </mat-card><br>
+<!-- 
+        <mat-card class="col-12 col-md-3">
+            <div class="row">
+                <div class="col">
+                    <div class="vinho-img">
+                        <img src="./assets/icon/vinhos.png">
+                    </div>
+                </div><br>
+                <div class="col">
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-content>
+                        <p>This card indeterminates progress bar.</p>
+                        <p>longText</p>
+                    </mat-card-content>
+                </div>
+            </div>
+        </mat-card><br>
+
+        <mat-card class="col-12 col-md-3">
+            <div class="row">
+                <div class="col">
+                    <div class="vinho-img">
+                        <img src="./assets/icon/vinhos.png">
+                    </div>
+                </div><br>
+                <div class="col">
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-content>
+                        <p>This card indeterminates progress bar.</p>
+                        <p>longText</p>
+                    </mat-card-content>
+                </div>
+            </div>
+        </mat-card><br>
+
         <mat-card class="col-12 col-md-3">
             <div class="row" >
                 <div class="col">
@@ -151,58 +205,7 @@
                     </mat-card-content>
                 </div>
             </div>
-        </mat-card><br>
-
-        <mat-card class="col-12 col-md-3">
-            <div class="row" >
-                <div class="col">
-                    <div class="vinho-img">
-                        <img src="./assets/icon/vinhos.png">
-                    </div>
-                </div><br>
-                <div class="col">
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    <mat-card-content>
-                        <p>This card indeterminates progress bar.</p>
-                        <p>longText</p>
-                    </mat-card-content>
-                </div>
-            </div>
-        </mat-card><br>
-
-        <mat-card class="col-12 col-md-3">
-            <div class="row">
-                <div class="col">
-                    <div class="vinho-img">
-                        <img src="./assets/icon/vinhos.png">
-                    </div>
-                </div><br>
-                <div class="col">
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    <mat-card-content>
-                        <p>This card indeterminates progress bar.</p>
-                        <p>longText</p>
-                    </mat-card-content>
-                </div>
-            </div>
-        </mat-card><br>
-
-        <mat-card class="col-12 col-md-3">
-            <div class="row">
-                <div class="col">
-                    <div class="vinho-img">
-                        <img src="./assets/icon/vinhos.png">
-                    </div>
-                </div><br>
-                <div class="col">
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    <mat-card-content>
-                        <p>This card indeterminates progress bar.</p>
-                        <p>longText</p>
-                    </mat-card-content>
-                </div>
-            </div>
-        </mat-card><br>
+        </mat-card><br> -->
     </div><br>
 </mat-card><br>
 

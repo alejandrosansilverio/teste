@@ -28,7 +28,7 @@
             <mat-form-field color="primary">
                 <mat-label>Tipo de vinho</mat-label>
                 <mat-select formControlName="tipo_vinho">
-                    <mat-option *ngFor="let v of vinhos" value="{{v._id}}">{{v.nome}}</mat-option>
+                    <mat-option *ngFor="let v of vinhos" value="{{v.id}}">{{v.nome}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -37,7 +37,7 @@
             <mat-form-field color="primary">
                 <mat-label>Tipo de uva ou blend</mat-label>
                 <mat-select multiple formControlName="tipo_uva">
-                    <mat-option *ngFor="let u of uvas" value="{{u._id}}">{{u.nome}}</mat-option>
+                    <mat-option *ngFor="let u of uvas" value="{{u.id}}">{{u.nome}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -47,7 +47,7 @@
         <mat-form-field color="primary">
             <mat-label>Harmonização com comidas</mat-label>
             <mat-select multiple formControlName="harmonizacao">
-                <mat-option *ngFor="let h of harmonizacoes" value="{{h._id}}">{{h.nome}}</mat-option>
+                <mat-option *ngFor="let h of harmonizacoes" value="{{h.id}}">{{h.nome}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>

@@ -30,7 +30,6 @@ export class CadastroVinhosComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<CadastroVinhosComponent>, private http: HttpClient) { }
 
   ngOnInit(): void {
-    console.log('teste')
     this.loadForm();
     forkJoin([
       this.http.get("http://localhost:3000/tipo_vinhos"),
@@ -60,7 +59,7 @@ export class CadastroVinhosComponent implements OnInit {
     if (file) {
         this.fileName = file.name;
         const formData = new FormData();
-        formData.append("thumbnail", file);
+        formData.append("rotulo", file);
         /*const upload$ = this.http.post("/api/thumbnail-upload", formData);
         upload$.subscribe();*/
         this.arquivo = formData;
@@ -84,10 +83,28 @@ export class CadastroVinhosComponent implements OnInit {
       harmonizacao: this.dadosVinho.value.harmonizacao,
       rotulo: this.arquivo
     }
-    console.log(this.body)
+    const formData = new FormData();
+    formData.append("rotulo", this.dadosVinho.value.rotulo);
+    formData.append("nome", this.dadosVinho.value.nome);
+    formData.append("vinicola", this.dadosVinho.value.vinicola);
+    formData.append("pais_origem", this.dadosVinho.value.pais_origem);
+    formData.append("tipo_vinho", this.dadosVinho.value.tipo_vinho);
+    formData.append("tipo_uva", this.dadosVinho.value.tipo_uva);
+    formData.append("harmonizacao", this.dadosVinho.value.harmonizacao);
 
-    this.http.post("http://localhost:3000/vinhos", this.body).subscribe((res) => {
-      console.log(res)
+
+    // let formData = new FormData(this.dadosVinho);
+
+    this.http.post("http://localhost:3000/vinhos/", formData).subscribe((res) => {
+      if(res){
+         const res = Swal.fire({
+      icon: 'success',
+      title: 'Cadastrado concluído com sucesso!',
+      confirmButtonColor: 'rgb(76, 177, 76)'
+    }).then((r)=>{
+      window.location.href = '/home'
+    });
+      }
     });
 
    /* const res = Swal.fire({

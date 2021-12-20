@@ -26,10 +26,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     forkJoin([
-      this.http.get("http://localhost:3000/vinhos/", {}),
-      this.http.get("http://localhost:3000/uvas/", {}),
-      this.http.get("http://localhost:3000/tipo_vinhos/", {}),
-      this.http.get("http://localhost:3000/harmonizacoes", {})
+      this.http.get("https://api-trabalho-web.herokuapp.com/vinhos/", {}),
+      this.http.get("https://api-trabalho-web.herokuapp.com/uvas/", {}),
+      this.http.get("https://api-trabalho-web.herokuapp.com/tipo_vinhos/", {}),
+      this.http.get("https://api-trabalho-web.herokuapp.com/harmonizacoes/", {})
     ]).subscribe((results: any)=>{
       this.vinhos = results[0];
       this.uvas = results[1];

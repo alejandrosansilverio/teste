@@ -95,7 +95,7 @@ export class CadastroVinhosComponent implements OnInit {
 
     // let formData = new FormData(this.dadosVinho);
 
-    this.http.post("http://localhost:3000/vinhos/", formData).subscribe((res) => {
+    this.http.post("https://api-trabalho-web.herokuapp.com/vinhos/", formData).subscribe((res) => {
       if(res){
          const res = Swal.fire({
       icon: 'success',

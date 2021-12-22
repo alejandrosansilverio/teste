@@ -102,7 +102,7 @@ export class CadastroVinhosComponent implements OnInit {
       title: 'Cadastrado concluído com sucesso!',
       confirmButtonColor: 'rgb(76, 177, 76)'
     }).then((r)=>{
-      window.location.href = '/home'
+      window.location.href = '/'
     });
       }
     });

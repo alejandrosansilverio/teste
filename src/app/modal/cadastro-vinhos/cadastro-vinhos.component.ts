@@ -32,9 +32,9 @@ export class CadastroVinhosComponent implements OnInit {
   ngOnInit(): void {
     this.loadForm();
     forkJoin([
-      this.http.get("http://localhost:3000/tipo_vinhos"),
-      this.http.get("http://localhost:3000/uvas"),
-      this.http.get("http://localhost:3000/harmonizacoes")
+      this.http.get("https://api-trabalho-web.herokuapp.com/tipo_vinhos"),
+      this.http.get("https://api-trabalho-web.herokuapp.com/uvas"),
+      this.http.get("https://api-trabalho-web.herokuapp.com/harmonizacoes")
     ]).subscribe(res => {
       this.vinhos = res[0];
       this.uvas = res[1];

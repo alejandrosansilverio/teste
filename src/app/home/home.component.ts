@@ -48,24 +48,48 @@ export class HomeComponent implements OnInit {
     return tipos
   }
 
-   searchUvas(id: any){
+  searchUvas(id: any) {
     let tipos: any = [];
-     this.uvas.forEach((e: any)=>{
-      if(e._id == id){
-        tipos.push(e);
-      }
-    })
-    return tipos
+    if (id.length == 0) {
+      this.uvas.forEach((e: any) => {
+        if (e._id == id) {
+          tipos.push(e);
+        }
+      })
+      return tipos
+    } else {
+      id.forEach((r: any) => {
+        this.uvas.forEach((e: any) => {
+          if (e._id == r) {
+            tipos.push(e);
+          }
+        })
+      })
+      return tipos;
+    }
+
   }
 
-   searchHarmonizacao(id: any){
+ searchHarmonizacao(id: any) {
     let tipos: any = [];
-     this.harmonizacoes.forEach((e: any)=>{
-      if(e._id == id){
-        tipos.push(e);
-      }
-    })
-    return tipos
+    if (id.length == 0) {
+      this.harmonizacoes.forEach((e: any) => {
+        if (e._id == id) {
+          tipos.push(e);
+        }
+      })
+      console.log(tipos)
+      return tipos
+    } else {
+      id.forEach((r: any) => {
+        this.harmonizacoes.forEach((e: any) => {
+          if (e._id == r) {
+            tipos.push(e);
+          }
+        })
+      })
+      return tipos;
+    }
   }
   
   
